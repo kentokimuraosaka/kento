@@ -361,3 +361,26 @@ table.info tr:last-child td { border-bottom: 0; }
 @media (max-width: 480px) {
   .form .btn { justify-self: stretch; }
 }
+
+/* Contact box */
+.contact-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 8px 0 32px;
+}
+
+.contact-label { margin: 0; font-size: 14px; color: var(--muted); }
+
+.contact-mail {
+  margin: 4px 0 18px;
+  font-size: clamp(20px, 5vw, 26px);
+  font-weight: 700;
+  word-break: break-all;
+  user-select: all;
+}
+
+.contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-actions .btn.ghost { margin-left: 0; cursor: pointer; font: inherit; font-weight: 600; background: var(--surface); }
+.contact-box .form-note { margin-top: 12px; }

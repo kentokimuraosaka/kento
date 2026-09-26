@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>無料相談のお申込み｜Haiburi LLC</title>
-  <meta name="description" content="Haiburi LLC の無料オンライン相談のお申込みフォームです。">
+  <meta name="description" content="Haiburi LLC の無料オンライン相談のお申込み方法です。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,58 +24,26 @@
 <main class="doc">
   <div class="wrap narrow">
     <h1>無料相談のお申込み</h1>
-    <p class="updated">オンライン（Zoom 等）で30分ほど、現状と目的を伺います。2営業日以内にメールでご連絡します。</p>
+    <p class="updated">オンライン（Zoom 等）で30分ほど、現状と目的を伺います。メールでお申込みいただくと、2営業日以内にご連絡します。</p>
 
-    <form class="form" action="https://formsubmit.co/haiburillc@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="【Haiburi LLC】無料相談のお申込み">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" id="next" value="https://haiburillc.com/thanks.html">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="contact-box">
+      <p class="contact-label">お申込み・お問い合わせ先</p>
+      <p class="contact-mail" id="mail">haiburillc@gmail.com</p>
+      <div class="contact-actions">
+        <a class="btn" id="compose" href="mailto:haiburillc@gmail.com">メールを作成する</a>
+        <button class="btn ghost" type="button" id="copy">アドレスをコピー</button>
+      </div>
+      <p class="form-note" id="copied" hidden>コピーしました。お使いのメールに貼り付けてご利用ください。</p>
+    </div>
 
-      <label class="field">
-        <span>お名前 <em>必須</em></span>
-        <input type="text" name="お名前" autocomplete="name" required>
-      </label>
-
-      <label class="field">
-        <span>メールアドレス <em>必須</em></span>
-        <input type="email" name="email" autocomplete="email" required>
-      </label>
-
-      <label class="field">
-        <span>電話番号 <small>任意</small></span>
-        <input type="tel" name="電話番号" autocomplete="tel">
-      </label>
-
-      <label class="field">
-        <span>ご興味のある講座 <em>必須</em></span>
-        <select name="ご興味のある講座" required>
-          <option value="">選択してください</option>
-          <option>米国進出・LLC設立スクール</option>
-          <option>バリ島 移住準備スクール</option>
-          <option>中高年のためのキャリア・ライフデザイン講座</option>
-          <option>まだ決めていない・その他</option>
-        </select>
-      </label>
-
-      <label class="field">
-        <span>ご相談内容 <em>必須</em></span>
-        <textarea name="ご相談内容" rows="6" required placeholder="現在の状況や、実現したいことをご記入ください。"></textarea>
-      </label>
-
-      <label class="field">
-        <span>ご希望の相談日時 <small>任意</small></span>
-        <input type="text" name="ご希望の相談日時" placeholder="例：平日20時以降、土日の午前など">
-      </label>
-
-      <label class="check">
-        <input type="checkbox" name="プライバシーポリシーへの同意" value="同意する" required>
-        <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します</span>
-      </label>
-
-      <button class="btn" type="submit">送信する</button>
-      <p class="form-note">送信後、スパム防止の確認画面が表示される場合があります。</p>
-    </form>
+    <h2>メールに記載いただきたいこと</h2>
+    <ol>
+      <li>お名前</li>
+      <li>ご興味のある講座（米国進出・LLC設立スクール／バリ島 移住準備スクール／その他）</li>
+      <li>現在の状況と、実現したいこと</li>
+      <li>ご希望の相談日時（例：平日20時以降、土日の午前など）</li>
+    </ol>
+    <p>いただいた個人情報は、<a href="privacy.html">プライバシーポリシー</a>に従って取り扱います。</p>
   </div>
 </main>
 
@@ -92,7 +60,23 @@
 </footer>
 
 <script>
-  document.getElementById('next').value = location.origin + '/thanks.html';
+  var subject = '無料相談の申込み';
+  var body = 'お名前：\nご興味のある講座：\n現在の状況と、実現したいこと：\n\nご希望の相談日時：\n';
+  document.getElementById('compose').href =
+    'mailto:haiburillc@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  document.getElementById('copy').addEventListener('click', function () {
+    var done = function () { document.getElementById('copied').hidden = false; };
+    var select = function () {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById('mail'));
+      var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText('haiburillc@gmail.com').then(done, select);
+    } else {
+      select();
+    }
+  });
 </script>
 </body>
 </html>
