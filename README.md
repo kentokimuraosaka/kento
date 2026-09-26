@@ -5,7 +5,7 @@ Static site in `site/` (plain HTML/CSS, no build step), served by Cloudflare Wor
 | File | Page |
 | --- | --- |
 | `site/index.html` | トップ（日本語） |
-| `site/en/index.html` | Top page (English, for bank / payment reviewers) |
+| `site/en.html` | Top page (English, for bank / payment reviewers) |
 | `site/tokushoho.html` | 特定商取引法に基づく表記 |
 | `site/terms.html` | 利用規約 / Terms of Service |
 | `site/refund.html` | 返金ポリシー / Refund Policy |
