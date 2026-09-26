@@ -11,12 +11,14 @@ Static site in `site/` (plain HTML/CSS, no build step), served by Cloudflare Wor
 | `site/refund.html` | 返金ポリシー / Refund Policy |
 | `site/privacy.html` | プライバシーポリシー / Privacy Policy |
 
-## Publish (Cloudflare Workers)
+## Publish (automatic)
 
-1. Domain: `haiburillc.com` (Cloudflare Registrar).
-2. Cloudflare dashboard → Compute → Workers & Pages → Create → Import a repository → `kentokimuraosaka/kento`.
-3. Branch: `claude/llc-payment-banking-setup-3k09kb`. Build command empty, deploy command `npx wrangler deploy` (default).
-4. After deploy: Settings → Domains & Routes → add custom domains `haiburillc.com` and `www.haiburillc.com`.
+Every push to `claude/llc-payment-banking-setup-3k09kb` that touches `site/` deploys to the
+`haiburillc` Worker (custom domains `haiburillc.com`, `www.haiburillc.com`) through
+`.github/workflows/deploy.yml`.
+
+One-time setup: add a Cloudflare API token (template "Edit Cloudflare Workers") as the
+repository secret `CLOUDFLARE_API_TOKEN`. Until it exists, the workflow skips the deploy.
 
 ## Before publishing, confirm
 
