@@ -302,3 +302,62 @@ table.info tr:last-child td { border-bottom: 0; }
 }
 
 .footer-links a { color: var(--muted); }
+
+/* Contact form */
+.narrow { max-width: 640px; }
+
+.form { display: grid; gap: 18px; margin-top: 8px; }
+
+.field { display: grid; gap: 6px; }
+
+.field span { font-weight: 600; font-size: 15px; }
+
+.field em,
+.field small {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+
+.field em { background: var(--accent); color: var(--accent-ink); }
+.field small { background: var(--line); color: var(--muted); }
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid #cfcac0;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.field textarea { resize: vertical; }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.check input { width: 18px; height: 18px; margin-top: 5px; accent-color: var(--accent); }
+
+.form .btn { border: 0; cursor: pointer; font-size: 16px; justify-self: start; }
+
+.form-note { font-size: 13px; color: var(--muted); margin: 0; }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+@media (max-width: 480px) {
+  .form .btn { justify-self: stretch; }
+}
